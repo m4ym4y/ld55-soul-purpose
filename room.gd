@@ -87,7 +87,6 @@ func disable_controls():
 # placeholder state
 func init(_state):
 	state = _state
-	print("LOAD STATE", state.money)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -102,6 +101,11 @@ func start_summoning():
 	disable_controls()
 	summoning = true
 	$Room.play("summoning")
+	$Skip.visible = true
+	$Skip.disabled = false
+
+func _on_skip_pressed():
+	_on_room_animation_finished()
 
 var pull_result = ""
 
@@ -145,9 +149,9 @@ func _on_button_pressed():
 	start_summoning()
 
 func _on_room_animation_finished():
+	$Skip.visible = false
+	$Skip.disabled = true
 	$Room.play("default")
-	reset_button()
-	reset_button()
 	reset_button()
 	summoning = false
 	finish_summoning()

@@ -151,9 +151,18 @@ visible = false
 [node name="DialogueBox" parent="." instance=ExtResource("12_40mwk")]
 visible = false
 
+[node name="Skip" type="Button" parent="."]
+visible = false
+offset_left = 626.0
+offset_top = 20.0
+offset_right = 774.0
+offset_bottom = 51.0
+text = "Skip Animation >>"
+
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
 [connection signal="frame_changed" from="SummonResult" to="." method="_on_summon_result_frame_changed"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
 [connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

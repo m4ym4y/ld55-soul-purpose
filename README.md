@@ -28,7 +28,6 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 - [ ] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
 - [x] Animation on submitting customer joy form
-- [ ] Animation on earnings going up
 - [x] Animate text for calls
 - [ ] Format text -- bold or color words that correspond to a category and maybe color names?
 - [ ] Add some animation to Infernus sitting at his desk
@@ -37,7 +36,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 - [ ] **ADD MORE SUMMONS! Make em cool and funny and cute**
 - [ ] Proper animation when summoning (featuring Infernus)
-- [ ] Ability to skip summoning animation and go straight to reveal
+- [x] Ability to skip summoning animation and go straight to reveal
 - [x] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
 - [x] Dialogue when a summon appears
 - [x] multiple dialogue options per summon
