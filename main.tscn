@@ -12,3 +12,4 @@ menuScene = ExtResource("2_7ihsl")
 homeScene = ExtResource("2_uwm8h")
 drivingScene = ExtResource("3_88lke")
 officeScene = ExtResource("4_ey3op")
+metadata/_edit_lock_ = true

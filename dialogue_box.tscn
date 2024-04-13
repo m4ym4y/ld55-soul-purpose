@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1yofrb2qrxbe"]
+
+[ext_resource type="Script" path="res://dialogue_box.gd" id="1_7xrqf"]
+[ext_resource type="PackedScene" uid="uid://y70702kwpevi" path="res://textbox.tscn" id="2_n553s"]
+
+[node name="DialogueBox" type="Node2D"]
+position = Vector2(2.08165e-12, 380)
+script = ExtResource("1_7xrqf")
+
+[node name="TextBox" parent="." instance=ExtResource("2_n553s")]

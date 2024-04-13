@@ -20,6 +20,6 @@ func _process(delta):
 func _input(event):
 	if not visible or scale.x < 1.0 or scale.y < 1.0:
 		return
-	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and not event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
 		if $Submit.get_rect().has_point(event.position - position):
 			dismissed.emit()

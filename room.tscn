@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=15 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
 [ext_resource type="Texture2D" uid="uid://bn867nufsawqh" path="res://assets/room.png" id="3_bvvmn"]
+[ext_resource type="Texture2D" uid="uid://b1o1ne20lcd5y" path="res://assets/dave0.png" id="4_0oa7i"]
 [ext_resource type="Texture2D" uid="uid://dgpg7c0bmxrh0" path="res://assets/dave.png" id="4_2dpmh"]
 [ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="5_p8ga4"]
+[ext_resource type="Texture2D" uid="uid://f18mbfdkmf4g" path="res://assets/lab8researcher0.png" id="6_wwwmp"]
+[ext_resource type="Texture2D" uid="uid://bc1brlgr4nvio" path="res://assets/lab8researcher.png" id="7_jirfx"]
+[ext_resource type="Texture2D" uid="uid://bqfpu861xiaml" path="res://assets/trudy0.png" id="8_aygcv"]
+[ext_resource type="Texture2D" uid="uid://c4f4d26n7wjgg" path="res://assets/trudy.png" id="9_8kctf"]
+[ext_resource type="PackedScene" uid="uid://yavs46qwbjny" path="res://state_container.tscn" id="11_vl6ey"]
+[ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
 animations = [{
@@ -56,11 +63,14 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_0oa7i")
+}, {
+"duration": 1.0,
 "texture": ExtResource("4_2dpmh")
 }],
-"loop": true,
+"loop": false,
 "name": &"dave",
-"speed": 5.0
+"speed": 0.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -69,6 +79,28 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wwwmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jirfx")
+}],
+"loop": false,
+"name": &"lab8researcher",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_aygcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8kctf")
+}],
+"loop": false,
+"name": &"trudy",
+"speed": 0.5
 }]
 
 [node name="RoomScene" type="Node2D"]
@@ -104,20 +136,6 @@ position = Vector2(400, 300)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yot1y")
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="ResultLabel" type="Label" parent="."]
-visible = false
-offset_left = 24.0
-offset_top = 478.0
-offset_right = 204.0
-offset_bottom = 501.0
-scale = Vector2(4.10007, 4.38846)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-text = "YOU SUMMONED DAVE"
-
 [node name="NextDayButton" type="Button" parent="."]
 offset_left = 23.0
 offset_top = 170.0
@@ -128,8 +146,14 @@ text = "Start the next day"
 [node name="TransitionBox" parent="." instance=ExtResource("5_p8ga4")]
 visible = false
 
+[node name="StateContainer" parent="." instance=ExtResource("11_vl6ey")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("12_40mwk")]
+visible = false
+
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="frame_changed" from="SummonResult" to="." method="_on_summon_result_frame_changed"]
 [connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
+[connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]

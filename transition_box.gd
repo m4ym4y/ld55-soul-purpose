@@ -13,9 +13,9 @@ func init(message):
 	$TextBox.display(message)
 
 func _input(event):
-	if not $TextBox.finished:
+	if not $TextBox.is_finished:
 		return
-	if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and not event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
 		dismissed.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
