@@ -40,7 +40,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [x] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
 - [x] Dialogue when a summon appears
 - [x] multiple dialogue options per summon
-- [ ] Keep a compendium of summons (so you can see how many of everything you've pulled
+- [x] Keep a compendium of summons (so you can see how many of everything you've pulled
 - [ ] Special animation if your lost love appears (should fade out after and go to end credits. Tells you how much you spent and how many pulls it took. And all the stats of who you pulled along the way-- maybe this would be better than the compendium)
 
 ## Stretch

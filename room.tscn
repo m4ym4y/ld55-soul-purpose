@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=16 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4f4d26n7wjgg" path="res://assets/trudy.png" id="9_8kctf"]
 [ext_resource type="PackedScene" uid="uid://yavs46qwbjny" path="res://state_container.tscn" id="11_vl6ey"]
 [ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
+[ext_resource type="PackedScene" uid="uid://1b7a0ydchq46" path="res://compendium.tscn" id="13_tygmm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
 animations = [{
@@ -118,11 +119,18 @@ offset_right = 277.0
 offset_bottom = 84.0
 text = "Summon a Soul (costs $17 worth of candles)"
 
+[node name="ShowCompendium" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 219.0
+offset_bottom = 121.0
+text = "View Spirit Compendium"
+
 [node name="NextDayButton" type="Button" parent="."]
 offset_left = 20.0
-offset_top = 93.0
+offset_top = 128.0
 offset_right = 167.0
-offset_bottom = 124.0
+offset_bottom = 159.0
 text = "Start the next day"
 
 [node name="Balance" type="Label" parent="."]
@@ -159,10 +167,16 @@ offset_right = 774.0
 offset_bottom = 51.0
 text = "Skip Animation >>"
 
+[node name="Compendium" parent="." instance=ExtResource("13_tygmm")]
+visible = false
+position = Vector2(195, 153)
+
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ShowCompendium" to="." method="_on_show_compendium_pressed"]
 [connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
 [connection signal="frame_changed" from="SummonResult" to="." method="_on_summon_result_frame_changed"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
 [connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
+[connection signal="finished" from="Compendium" to="." method="_on_compendium_finished"]

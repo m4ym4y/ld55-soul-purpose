@@ -5,36 +5,6 @@ signal finished
 var summoning = false
 var PULL_PRICE = 17
 
-var pull_table = {
-	"dave": {
-		"name": "Dave",
-		"dialogue": [
-			["Hey! It's me, Dave! Want to go to a ball game, sport? No? Well, I guess I'll just see myself out.", 90],
-			["Infernus! I need to talk to you about me and your mother. You see, nine months before you were born, your mother and I-- what's that spell you're chanting? Oh-- Oh um, banishment? Great, ok, see you later sport!", 10],
-		]
-	},
-	"trudy": {
-		"name": "Trudy",
-		"dialogue": [
-			["Weird, this is the apartment I got murdered in, 20 years ago. What do you need from me? I'd appreciate if you didn't upset my eternal slumber just because you're some annoying loser wizard with no friends. OK? Bye...", 50],
-			["Argh, I swear if you summon me again I'm totally going to have all of my demon friends curse the crap out of you!", 50],
-		]
-	},
-	"lab8researcher": {
-		"name": "Lab 8 Researcher",
-		"dialogue": [
-			["Mother of god, what have I done! Wh- Where am I? Whoever you are, get out of here, as fast as you can! I'm begging you, you have no idea what we unleashed upon the world! Pathogen X was more virulent than anything we've ever seen, and it's out of containment Hide! Run! Oh god, what have I done! WHAT HAVE I DONEEEEE!", 80],
-			["** Incoherent screaming **", 20],
-		]
-	}
-}
-
-var pull_weights = [
-		["dave", 50],
-		["trudy", 25],
-		["lab8researcher", 25],
-]
-
 var summoning_tutorial = [
 		{
 			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles. [ Left click to advance dialogue ]",
@@ -74,6 +44,7 @@ func _ready():
 	if not state:
 		state = $StateContainer
 	show_balance()
+	$Compendium.init(state)
 	if state.first_time_summoning:
 		state.first_time_summoning = false
 		disable_controls()
@@ -83,6 +54,22 @@ func _ready():
 func disable_controls():
 	$Button.disabled = true
 	$NextDayButton.disabled = true
+	$ShowCompendium.disabled = true
+
+func enable_controls():
+	if state.money >= PULL_PRICE:
+		$Button.disabled = false
+	$NextDayButton.disabled = false
+	$ShowCompendium.disabled = false
+
+func _on_show_compendium_pressed():
+	disable_controls()
+	$Compendium.refresh()
+	$Compendium.visible = true
+
+func _on_compendium_finished():
+	$Compendium.visible = false
+	enable_controls()
 
 # placeholder state
 func init(_state):
@@ -110,7 +97,8 @@ func _on_skip_pressed():
 var pull_result = ""
 
 func finish_summoning():
-	pull_result = pull_weighted(pull_weights)
+	pull_result = pull_weighted(state.pull_weights)
+	state.pull_table[pull_result].pulled += 1
 
 	$Fade.visible = true
 	$SummonResult.scale = Vector2(0, 0)
@@ -119,8 +107,8 @@ func finish_summoning():
 func _on_summon_result_frame_changed():
 	$DialogueBox.visible = true
 	$DialogueBox.init([
-		{ "text": "You summoned " + pull_table[pull_result].name + "!!" },
-		{ "text": "\"" + pull_weighted(pull_table[pull_result].dialogue) + "\"" },
+		{ "text": "You summoned " + state.pull_table[pull_result].name + "!!" },
+		{ "text": "\"" + pull_weighted(state.pull_table[pull_result].dialogue) + "\"" },
 	])
 
 func _on_dialogue_box_finished():
@@ -134,9 +122,7 @@ func _on_dialogue_box_finished():
 
 func reset_button():
 	summoning = false
-	$NextDayButton.disabled = false
-	if state.money >= PULL_PRICE:
-		$Button.disabled = false
+	enable_controls()
 
 func _on_button_pressed():
 	# lock the button until summoning is complete
