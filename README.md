@@ -15,21 +15,21 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 ## Glue / Misc
 
-- [ ] Main menu (title splash screen, start button, maybe see your compendium?)
+- [x] Main menu (title splash screen, start button, maybe see your compendium?)
 - [ ] Transitional screens with a bit of dialogue and a closeup of our protag
 - [ ] Protagonist Name??? (Infernus Flagrante)
-- [ ] Generic class for dialogue box that fills in gradually with some beeping sounds
-- [ ] Generic class for confirmable popup for moving from one phase to the next
-- [ ] Global scene manager to init scenes with balance
+- [x] Generic class for dialogue box that fills in gradually with some beeping sounds
+- [x] Generic class for confirmable popup for moving from one phase to the next
+- [x] Global scene manager to init scenes with balance
 - [ ] First time instruction in transition scene on going to each scene for the first time
 - [ ] Music
 
 ## Office
 
 - [ ] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
-- [ ] Animation on submitting customer joy form
+- [x] Animation on submitting customer joy form
 - [ ] Animation on earnings going up
-- [ ] Animate text for calls
+- [x] Animate text for calls
 - [ ] Format text -- bold or color words that correspond to a category and maybe color names?
 - [ ] Add some animation to Infernus sitting at his desk
 
