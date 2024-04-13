@@ -27,7 +27,6 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 ## Office
 
 - [ ] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
-
 - [ ] Animation on submitting customer joy form
 - [ ] Animation on earnings going up
 - [ ] Animate text for calls
@@ -37,7 +36,6 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 ## Summoning
 
 - [ ] **ADD MORE SUMMONS! Make em cool and funny and cute**
-
 - [ ] Proper animation when summoning (featuring Infernus)
 - [ ] Ability to skip summoning animation and go straight to reveal
 - [ ] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
