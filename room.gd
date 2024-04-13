@@ -107,11 +107,13 @@ func finish_summoning():
 func _on_summon_result_frame_changed():
 	$DialogueBox.visible = true
 	$DialogueBox.init([
-		{ "text": "You summoned " + state.pull_table[pull_result].name + "!!" },
+		{ "text": "You summoned " + state.pull_table[pull_result].name + (" again." if state.pull_table[pull_result].pulled > 1 else "!!") },
 		{ "text": "\"" + pull_weighted(state.pull_table[pull_result].dialogue) + "\"" },
 	])
 
 func _on_dialogue_box_finished():
+	if summoning:
+		return
 	if ending_day:
 		finished.emit()
 		return
@@ -138,7 +140,6 @@ func _on_room_animation_finished():
 	$Skip.visible = false
 	$Skip.disabled = true
 	$Room.play("default")
-	reset_button()
 	summoning = false
 	finish_summoning()
 
