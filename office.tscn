@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://j4ihl5y2awa"]
+[gd_scene load_steps=10 format=3 uid="uid://j4ihl5y2awa"]
 
 [ext_resource type="Texture2D" uid="uid://dxu07167u45ke" path="res://assets/office-outside.png" id="1_3s1vf"]
 [ext_resource type="Script" path="res://office.gd" id="1_w7k2b"]
@@ -6,34 +6,36 @@
 [ext_resource type="PackedScene" uid="uid://y70702kwpevi" path="res://textbox.tscn" id="4_b2x23"]
 [ext_resource type="PackedScene" uid="uid://do5vxde6f1gwp" path="res://submit_box.tscn" id="5_2g7wr"]
 [ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="6_ype85"]
+[ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="7_o3p45"]
+[ext_resource type="PackedScene" uid="uid://yavs46qwbjny" path="res://state_container.tscn" id="8_m3ui6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6kphe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_3s1vf")
+"texture": ExtResource("2_v5ooh")
 }],
 "loop": true,
-"name": &"default",
+"name": &"inside",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v5ooh")
+"texture": ExtResource("1_3s1vf")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"outside",
 "speed": 5.0
 }]
 
 [node name="OfficeScene" type="Node2D"]
 script = ExtResource("1_w7k2b")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Background" type="AnimatedSprite2D" parent="."]
 position = Vector2(400, 300)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6kphe")
-animation = &"new_animation"
+animation = &"inside"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -291,12 +293,23 @@ position = Vector2(591, 385)
 
 [node name="ClockTimer" type="Timer" parent="."]
 wait_time = 0.071
-autostart = true
 
 [node name="TransitionBox" parent="." instance=ExtResource("6_ype85")]
 visible = false
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="DialogueBox" parent="." instance=ExtResource("7_o3p45")]
+visible = false
+
+[node name="StateContainer" parent="." instance=ExtResource("8_m3ui6")]
 
 [connection signal="pressed" from="Control/submit" to="." method="_on_submit_pressed"]
 [connection signal="dismissed" from="SubmitBox" to="." method="_on_submit_box_dismissed"]
 [connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
+[connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]

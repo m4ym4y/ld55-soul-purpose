@@ -16,12 +16,12 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 ## Glue / Misc
 
 - [x] Main menu (title splash screen, start button, maybe see your compendium?)
-- [ ] Transitional screens with a bit of dialogue and a closeup of our protag
-- [ ] Protagonist Name??? (Infernus Flagrante)
+- [x] Transitional screens with a bit of dialogue and a closeup of our protag
+- [x] Protagonist Name??? (Infernus Blackwood)
 - [x] Generic class for dialogue box that fills in gradually with some beeping sounds
 - [x] Generic class for confirmable popup for moving from one phase to the next
 - [x] Global scene manager to init scenes with balance
-- [ ] First time instruction in transition scene on going to each scene for the first time
+- [x] First time instruction in transition scene on going to each scene for the first time
 - [ ] Music
 
 ## Office
@@ -38,7 +38,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [ ] **ADD MORE SUMMONS! Make em cool and funny and cute**
 - [ ] Proper animation when summoning (featuring Infernus)
 - [ ] Ability to skip summoning animation and go straight to reveal
-- [ ] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
+- [x] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
 - [x] Dialogue when a summon appears
 - [x] multiple dialogue options per summon
 - [ ] Keep a compendium of summons (so you can see how many of everything you've pulled

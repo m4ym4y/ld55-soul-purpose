@@ -35,6 +35,28 @@ var pull_weights = [
 		["lab8researcher", 25],
 ]
 
+var summoning_tutorial = [
+		{
+			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles. [ Left click to advance dialogue ]",
+			"img": "infernus",
+		},
+
+		{
+			"text": "It wasn't always this way for me, you see. A couple of years ago I met a woman, more full of spirit than any of the ghosts that I pull from the underworld. Instead of just seeing me as a creepy sorcerer, she saw me as a real person. Her name was Charlotte. She loved going with me to the candle store and smelling all the scented candles while I shopped for my ritual supplies. We had a few really good years.",
+			"img": "infernus",
+		},
+
+		{
+			"text": "She died, and it broke my heart. I can't help but think, maybe if I were there that day at the amusement park I could have stopped her from slipping on that banana peel and falling into the tiger exhibit. But alas, I hate amusement parks so was at home reading Agrippa's memoirs. I hate amusement parks even more, now.",
+			"img": "infernus",
+		},
+
+		{
+			"text": "But back to my summoning-- Every night I summon as many times as I can afford, trying to pull Charlotte's spirit back from beyond the veil so I can be with her again. Summoning is an imprecise art though, and I have only a small chance of getting her spirit. Usually I get others, people I have no interest in. What else can I do? I'll spend all my money on candles tonight, and then wake up early again for work tomorrow.",
+			"img": "infernus",
+		}
+]
+
 func pull_weighted(list):
 	var sum = 0
 	for item in list:
@@ -52,10 +74,20 @@ func _ready():
 	if not state:
 		state = $StateContainer
 	show_balance()
+	if state.first_time_summoning:
+		state.first_time_summoning = false
+		disable_controls()
+		$DialogueBox.visible = true
+		$DialogueBox.init(summoning_tutorial)
+
+func disable_controls():
+	$Button.disabled = true
+	$NextDayButton.disabled = true
 
 # placeholder state
 func init(_state):
-	state = state
+	state = _state
+	print("LOAD STATE", state.money)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -67,7 +99,7 @@ func show_balance():
 	$Balance.text = "Money: $" + str(state.money)
 
 func start_summoning():
-	$Button.disabled = true
+	disable_controls()
 	summoning = true
 	$Room.play("summoning")
 
@@ -83,11 +115,14 @@ func finish_summoning():
 func _on_summon_result_frame_changed():
 	$DialogueBox.visible = true
 	$DialogueBox.init([
-		"You summoned " + pull_table[pull_result].name + "!!",
-		"\"" + pull_weighted(pull_table[pull_result].dialogue) + "\"",
+		{ "text": "You summoned " + pull_table[pull_result].name + "!!" },
+		{ "text": "\"" + pull_weighted(pull_table[pull_result].dialogue) + "\"" },
 	])
 
 func _on_dialogue_box_finished():
+	if ending_day:
+		finished.emit()
+		return
 	$SummonResult.play("default")
 	$DialogueBox.visible = false
 	$Fade.visible = false
@@ -95,6 +130,7 @@ func _on_dialogue_box_finished():
 
 func reset_button():
 	summoning = false
+	$NextDayButton.disabled = false
 	if state.money >= PULL_PRICE:
 		$Button.disabled = false
 
@@ -116,9 +152,17 @@ func _on_room_animation_finished():
 	summoning = false
 	finish_summoning()
 
+var ending_day = false
 func _on_next_day_button_pressed():
-	$TransitionBox.visible = true
-	$TransitionBox.init("No luck tonight... Time to go to bed. It's another long day tomorrow.\n\n(Click to continue)")
+	$Fade.visible = true
+	ending_day = true
+	$DialogueBox.visible = true
+	$DialogueBox.init([
+		{
+			"text": "No luck tonight, I guess I better go to bed. It's another long day tomorrow...",
+			"img": "infernus",
+		},
+	])
 
 func _on_transition_box_dismissed():
 	finished.emit()

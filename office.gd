@@ -17,14 +17,45 @@ var customer_joy_data = [
 	},
 ]
 
+var summoning_tutorial = [
+	{
+		"text": "This is my office. I work at ComplainUServ, a white-label customer service firm that handles calls for a variety of businesses. My job title is 'Customer Joy Technician,' which means I answer the phones and note down customer feedback in a form. It's quite mindless really, although their angry voices do grate on me.",
+		"img": "infernus",
+	},
+	{
+		"text": "In order to earn money, I need to [type the customer's name into a text field]. Then I [check all boxes relevant to the customer's call]. Finally, I [click submit]. I get paid based on how accurate I was, and how many I can do in a day. Guess I'd better get started...",
+		"img": "infernus",
+	}
+]
+
 var money = 0
 var time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not state:
+		state = $StateContainer
 	show_time()
 	show_balance()
-	setup_new_call()
+	$Control.visible = false
+	$TextBox.visible = false
+	$Balance.visible = false
+	$Background.play("outside")
+	$DialogueBox.visible = true
+	if state.first_time_working:
+		state.first_time_working = false
+		$DialogueBox.init(summoning_tutorial)
+	else:
+		$DialogueBox.init([
+			{
+				"text": "Looks like it's going to be another long day at the office...",
+				"img": "infernus",
+			},
+		])
+
+var state
+func init(_state):
+	state = _state
 
 func _on_clock_timer_timeout():
 	time += 1
@@ -34,8 +65,17 @@ func _on_clock_timer_timeout():
 		finish_scene()
 
 func finish_scene():
-	$TransitionBox.visible = true
-	$TransitionBox.init("Your work day is over. Time to go home and summon some spirits! (Click to continue)")
+	$Control.visible = false
+	$Fade.visible = true
+	$TextBox.display("")
+	ending = true
+	$DialogueBox.visible = true
+	$DialogueBox.init([
+		{
+			"text": "My work day is finally over. Time to go home and summon some spirits! (Click to continue)",
+			"img": "infernus",
+		}
+	])
 
 func show_time():
 	var minutes = time % 60
@@ -49,6 +89,7 @@ func _process(delta):
 func setup_new_call():
 	current_call = customer_joy_data[randi() % customer_joy_data.size()]
 
+	$TextBox.visible = true
 	$Control/name.text = ""
 	for child in $Control.get_children():
 		if child is CheckBox:
@@ -58,8 +99,19 @@ func setup_new_call():
 
 	$TextBox.display(current_call.text)
 
-func _on_transition_box_dismissed():
-	finished.emit()
+var ending = false
+func _on_dialogue_box_finished():
+	if ending:
+		state.money += money
+		finished.emit()
+	else:
+		print("DIALOGUE BOX FINISHED")
+		$DialogueBox.visible = false
+		$Fade.visible = false
+		$Balance.visible = true
+		$Background.play("inside")
+		$ClockTimer.start()
+		setup_new_call()
 
 func _on_submit_pressed():
 	submit_call()

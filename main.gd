@@ -5,7 +5,8 @@ extends Node2D
 @export var drivingScene: PackedScene
 @export var officeScene: PackedScene
 
-var state = load("res://state_container.tscn")
+var stateScene = load("res://state_container.tscn")
+var state
 
 var current_scene = ""
 var scene
@@ -29,6 +30,7 @@ func _ready():
 		"office": officeScene,
 		"driving_from": drivingScene,
 	}
+	state = stateScene.instantiate()
 	next_scene()
 
 func _on_scene_finished():
@@ -42,6 +44,7 @@ func next_scene():
 	print("SCENE_CLASS", scene_class)
 	scene = scene_class.instantiate()
 
+	print("GOT STATE", state)
 	if scene.has_method("init"):
 		scene.init(state)
 	scene.position = Vector2(0, 0)

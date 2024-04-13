@@ -112,17 +112,24 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_akn02")
 
 [node name="Button" type="Button" parent="."]
-offset_left = 21.0
-offset_top = 124.0
-offset_right = 150.0
-offset_bottom = 155.0
-text = "Summon a Soul ($17 in supplies)"
+offset_left = 20.0
+offset_top = 53.0
+offset_right = 277.0
+offset_bottom = 84.0
+text = "Summon a Soul (costs $17 worth of candles)"
+
+[node name="NextDayButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 93.0
+offset_right = 167.0
+offset_bottom = 124.0
+text = "Start the next day"
 
 [node name="Balance" type="Label" parent="."]
-offset_left = 23.0
-offset_top = 86.0
-offset_right = 121.0
-offset_bottom = 109.0
+offset_left = 20.0
+offset_top = 23.0
+offset_right = 151.0
+offset_bottom = 46.0
 text = "<PLACEHOLDER>"
 
 [node name="Fade" type="ColorRect" parent="."]
@@ -136,13 +143,6 @@ position = Vector2(400, 300)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yot1y")
 
-[node name="NextDayButton" type="Button" parent="."]
-offset_left = 23.0
-offset_top = 170.0
-offset_right = 170.0
-offset_bottom = 201.0
-text = "Start the next day"
-
 [node name="TransitionBox" parent="." instance=ExtResource("5_p8ga4")]
 visible = false
 
@@ -153,7 +153,7 @@ visible = false
 
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="frame_changed" from="SummonResult" to="." method="_on_summon_result_frame_changed"]
 [connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="frame_changed" from="SummonResult" to="." method="_on_summon_result_frame_changed"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
 [connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]

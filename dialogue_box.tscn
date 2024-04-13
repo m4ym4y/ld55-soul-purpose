@@ -1,10 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1yofrb2qrxbe"]
+[gd_scene load_steps=5 format=3 uid="uid://b1yofrb2qrxbe"]
 
 [ext_resource type="Script" path="res://dialogue_box.gd" id="1_7xrqf"]
 [ext_resource type="PackedScene" uid="uid://y70702kwpevi" path="res://textbox.tscn" id="2_n553s"]
+[ext_resource type="Texture2D" uid="uid://dle4rjeybfa5q" path="res://assets/infernus-portrait.png" id="3_djydu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dysft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_djydu")
+}],
+"loop": true,
+"name": &"infernus",
+"speed": 5.0
+}]
 
 [node name="DialogueBox" type="Node2D"]
-position = Vector2(2.08165e-12, 380)
+position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_7xrqf")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(400, 300)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_dysft")
+
 [node name="TextBox" parent="." instance=ExtResource("2_n553s")]
+position = Vector2(2.08165e-12, 380)
