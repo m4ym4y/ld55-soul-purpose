@@ -1,6 +1,8 @@
 extends Node2D
 
-static var money := 150
+signal finished
+
+var money := 150
 var summoning = false
 
 # Called when the node enters the scene tree for the first time.
@@ -53,3 +55,10 @@ func _on_room_animation_finished():
 	reset_button()
 	summoning = false
 	finish_summoning()
+
+func _on_next_day_button_pressed():
+	$TransitionBox.visible = true
+	$TransitionBox.init("No luck tonight... Time to go to bed. It's another long day tomorrow. (Click to continue)")
+
+func _on_transition_box_dismissed():
+	finished.emit()

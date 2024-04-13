@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkeuuim2yfwqr"]
+
+[ext_resource type="Script" path="res://driving.gd" id="1_32pjx"]
+[ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="1_abhpr"]
+
+[node name="DrivingScene" type="Node2D"]
+script = ExtResource("1_32pjx")
+
+[node name="TransitionBox" parent="." instance=ExtResource("1_abhpr")]
+
+[connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]

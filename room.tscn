@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=8 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
 [ext_resource type="Texture2D" uid="uid://bn867nufsawqh" path="res://assets/room.png" id="3_bvvmn"]
 [ext_resource type="Texture2D" uid="uid://dgpg7c0bmxrh0" path="res://assets/dave.png" id="4_2dpmh"]
+[ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="5_p8ga4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
 animations = [{
@@ -70,7 +71,7 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="RoomScene" type="Node2D"]
 script = ExtResource("1_5a0lj")
 
 [node name="Room" type="AnimatedSprite2D" parent="."]
@@ -117,6 +118,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "YOU SUMMONED DAVE"
 
+[node name="NextDayButton" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 170.0
+offset_right = 170.0
+offset_bottom = 201.0
+text = "Start the next day"
+
+[node name="TransitionBox" parent="." instance=ExtResource("5_p8ga4")]
+visible = false
+
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]
+[connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]

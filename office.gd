@@ -1,5 +1,7 @@
 extends Node2D
 
+signal finished
+
 ## TODO use formatted text so that terms relating to categories can be bolded
 var current_call
 var customer_joy_data = [
@@ -15,11 +17,30 @@ var customer_joy_data = [
 	},
 ]
 
-var money = 55
+var money = 0
+var time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	show_time()
+	show_balance()
 	setup_new_call()
+
+func _on_clock_timer_timeout():
+	time += 1
+	show_time()
+	if (time > 60 * 14):
+		$ClockTimer.stop()
+		finish_scene()
+
+func finish_scene():
+	$TransitionBox.visible = true
+	$TransitionBox.init("Your work day is over. Time to go home and summon some spirits! (Click to continue)")
+
+func show_time():
+	var minutes = time % 60
+	var hours = 6 + (time / 60)
+	$Clock.text = "%02d:%02d" % [hours, minutes]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,8 +54,12 @@ func setup_new_call():
 		if child is CheckBox:
 			child.button_pressed = false
 	$Control/submit.disabled = false
+	$Control.visible = true
 
-	$CallText.text = current_call.text
+	$TextBox.display(current_call.text)
+
+func _on_transition_box_dismissed():
+	finished.emit()
 
 func _on_submit_pressed():
 	submit_call()
@@ -56,12 +81,23 @@ func submit_call():
 				matched -= 1.0
 
 	earned += floor(20 * (matched / float(current_call.cats.size())))
+	earned = max(earned, 0)
 
-	money += max(earned, 0)
+	money += earned
 	show_balance()
 
-	# TODO: animation
+	disable_form()
+	$SubmitBox.init(earned)
+	$SubmitBox.visible = true
+
+func disable_form():
+	$TextBox.display("")
+	$Control/submit.disabled = true
+	$Control.visible = false
+
+func _on_submit_box_dismissed():
+	$SubmitBox.visible = false
 	setup_new_call()
 
 func show_balance():
-	$Balance.text = "Money: $" + str(money)
+	$Balance.text = "Earned Today: $" + str(money)

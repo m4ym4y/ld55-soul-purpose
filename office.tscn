@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://j4ihl5y2awa"]
+[gd_scene load_steps=8 format=3 uid="uid://j4ihl5y2awa"]
 
 [ext_resource type="Texture2D" uid="uid://dxu07167u45ke" path="res://assets/office-outside.png" id="1_3s1vf"]
 [ext_resource type="Script" path="res://office.gd" id="1_w7k2b"]
 [ext_resource type="Texture2D" uid="uid://cg2cgeddx8tf6" path="res://assets/office-inside.png" id="2_v5ooh"]
+[ext_resource type="PackedScene" uid="uid://y70702kwpevi" path="res://textbox.tscn" id="4_b2x23"]
+[ext_resource type="PackedScene" uid="uid://do5vxde6f1gwp" path="res://submit_box.tscn" id="5_2g7wr"]
+[ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="6_ype85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6kphe"]
 animations = [{
@@ -23,7 +26,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="OfficeScene" type="Node2D"]
 script = ExtResource("1_w7k2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -32,36 +35,13 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_6kphe")
 animation = &"new_animation"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 780.0
-offset_bottom = 200.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 775.0
-offset_bottom = 195.0
-
-[node name="CallText" type="Label" parent="."]
-offset_left = 29.0
-offset_top = 28.0
-offset_right = 769.0
-offset_bottom = 190.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "<CALL TEXT HERE>"
-autowrap_mode = 2
-clip_text = true
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 408.0
-offset_top = 209.0
+offset_top = 208.0
 offset_right = 790.0
-offset_bottom = 593.0
+offset_bottom = 592.0
 
 [node name="submit" type="Button" parent="Control"]
 layout_mode = 0
@@ -258,6 +238,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 text = "Product complaint"
 
 [node name="price_product_quality" type="CheckBox" parent="Control"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 265.0
 offset_right = 215.0
@@ -302,4 +283,20 @@ offset_bottom = 264.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "15:45"
 
+[node name="TextBox" parent="." instance=ExtResource("4_b2x23")]
+
+[node name="SubmitBox" parent="." instance=ExtResource("5_2g7wr")]
+visible = false
+position = Vector2(591, 385)
+
+[node name="ClockTimer" type="Timer" parent="."]
+wait_time = 0.071
+autostart = true
+
+[node name="TransitionBox" parent="." instance=ExtResource("6_ype85")]
+visible = false
+
 [connection signal="pressed" from="Control/submit" to="." method="_on_submit_pressed"]
+[connection signal="dismissed" from="SubmitBox" to="." method="_on_submit_box_dismissed"]
+[connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]
+[connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
