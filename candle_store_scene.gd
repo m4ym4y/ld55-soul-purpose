@@ -20,9 +20,7 @@ func _ready():
 		finished.emit()
 		return
 
-	#if state.candle_store_visits == 10:
-	if state.candle_store_visits == 0:
-		print("0 visits")
+	if state.candle_store_visits == 6:
 		date_sequence = true
 		$DialogueBox.init([
 			{
