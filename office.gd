@@ -69,6 +69,7 @@ func finish_scene():
 	$Fade.visible = true
 	$TextBox.display("")
 	ending = true
+	$SubmitBox.queue_free()
 	$DialogueBox.visible = true
 	$DialogueBox.init([
 		{

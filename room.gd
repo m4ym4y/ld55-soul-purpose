@@ -112,11 +112,13 @@ func _on_summon_result_frame_changed():
 	])
 
 func _on_dialogue_box_finished():
+	print("DIALOGUE BOX FINISHED")
 	if summoning:
 		return
 	if ending_day:
 		finished.emit()
 		return
+	$Room.play("default")
 	$SummonResult.play("default")
 	$DialogueBox.visible = false
 	$Fade.visible = false
@@ -147,6 +149,7 @@ var ending_day = false
 func _on_next_day_button_pressed():
 	$Fade.visible = true
 	ending_day = true
+	$Room.play("empty")
 	$DialogueBox.visible = true
 	$DialogueBox.init([
 		{

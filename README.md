@@ -23,6 +23,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [x] Global scene manager to init scenes with balance
 - [x] First time instruction in transition scene on going to each scene for the first time
 - [ ] Music
+- [ ] SFX
 
 ## Office
 
@@ -35,7 +36,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 ## Summoning
 
 - [ ] **ADD MORE SUMMONS! Make em cool and funny and cute**
-- [ ] Proper animation when summoning (featuring Infernus)
+- [x] Proper animation when summoning (featuring Infernus)
 - [x] Ability to skip summoning animation and go straight to reveal
 - [x] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
 - [x] Dialogue when a summon appears
