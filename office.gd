@@ -83,19 +83,10 @@ func _process(delta):
 	pass
 
 func pick_random_call():
-	current_call = state.customer_delight_data[randi() % state.customer_delight_data.size()]
+	current_call = state.get_customer_call()
 
 func setup_new_call():
-	var min_seen
-	for call in state.customer_delight_data:
-		if not min_seen or call.seen < min_seen:
-			min_seen = call.seen
-
 	pick_random_call()
-	while current_call.seen > min_seen:
-		pick_random_call()
-	current_call.seen += 1
-
 	$TextBox.visible = true
 	$Control/name.text = ""
 	for child in $Control.get_children():

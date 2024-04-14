@@ -6,6 +6,7 @@ var first_time_summoning = true
 var first_time_working = true
 var day = 0
 var candle_store_visits = 0
+var customer_call_idx = 0
 
 var pull_table = {
 	"dave": {
@@ -72,7 +73,7 @@ var customer_delight_data = [
 	},
 
 	{
-		"text": "** Hello, my name is [b]George Bush[/b]. No, not the former president, ha, ha, ha. I just love bushes and other shrubs so I had my name legally changed to George Bush. I was in my back yard doing some lawn work, when a deer with glowing eyes gazed at me from the forest behind my house, we call it 'old bear woods.' It stood on its hind legs and beckoned me, so I followed. It pointed to a bag of chips on the ground, and [b]it spoke[/b]: [shake]'These chips are much too salty'[/shake]. It recited a phone number to me and told me to complain and tell you that you suck and I hope you die. **",
+		"text": "** Hello, my name is [b]George Bush[/b]. No, not the former president, ha, ha, ha. I just love bushes and other shrubs so I had my name legally changed to George Bush. I was in my back yard doing some lawn work, when [b]a deer with glowing eyes[/b] gazed at me from the forest behind my house, we call it 'old bear woods.' It stood on its hind legs and beckoned me, so I followed. It pointed to a bag of chips on the ground, and [b]it spoke[/b]: [shake]'These chips are much too salty'[/shake]. It recited a phone number to me and told me to complain and tell you that you suck and I hope you die. **",
 		"name": "george bush",
 		"cats": ["animals_speaking", "non_rat"],
 		"seen": 0,
@@ -137,7 +138,15 @@ var customer_delight_data = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	customer_delight_data.shuffle()
+
+func get_customer_call():
+	var result = customer_delight_data[customer_call_idx]
+	customer_call_idx += 1
+	if customer_call_idx >= customer_delight_data.size():
+		customer_call_idx = 0
+		customer_delight_data.shuffle()
+	return result
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
