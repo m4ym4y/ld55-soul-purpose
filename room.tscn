@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=28 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
 [ext_resource type="PackedScene" uid="uid://1b7a0ydchq46" path="res://compendium.tscn" id="13_tygmm"]
 [ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="14_afhcp"]
+[ext_resource type="AudioStream" uid="uid://dog5er1o18ved" path="res://assets/whoosh.wav" id="25_tpx70"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
 animations = [{
@@ -46,30 +47,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_bvvmn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1uoe5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_uhwfe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1uoe5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_uhwfe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1uoe5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_uhwfe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1uoe5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_uhwfe")
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_1uoe5")
@@ -220,7 +197,7 @@ script = ExtResource("1_5a0lj")
 position = Vector2(400, 300)
 scale = Vector2(0.501109, 0.5)
 sprite_frames = SubResource("SpriteFrames_akn02")
-animation = &"empty"
+animation = &"summoning"
 
 [node name="Button" type="Button" parent="."]
 offset_left = 20.0
@@ -290,7 +267,12 @@ text = "Skip Animation >>"
 visible = false
 position = Vector2(195, 153)
 
+[node name="Whoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_tpx70")
+volume_db = -10.0
+
 [connection signal="animation_finished" from="Room" to="." method="_on_room_animation_finished"]
+[connection signal="frame_changed" from="Room" to="." method="_on_room_frame_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ShowCompendium" to="." method="_on_show_compendium_pressed"]
 [connection signal="pressed" from="NextDayButton" to="." method="_on_next_day_button_pressed"]

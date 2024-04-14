@@ -23,7 +23,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [x] Global scene manager to init scenes with balance
 - [x] First time instruction in transition scene on going to each scene for the first time
 - [ ] Music
-- [ ] SFX
+- [x] SFX
 
 ## Office
 

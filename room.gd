@@ -102,6 +102,7 @@ func finish_summoning():
 	pull_result = pull_weighted(state.pull_weights)
 	state.pull_table[pull_result].pulled += 1
 
+	$Whoosh.play()
 	$Fade.visible = true
 	$SummonResult.scale = Vector2(0, 0)
 	$SummonResult.play(pull_result)

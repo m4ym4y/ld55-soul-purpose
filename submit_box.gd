@@ -7,6 +7,10 @@ func _ready():
 	pass # Replace with function body.
 
 func init(score):
+	if score > 0:
+		$Money.play()
+	else:
+		$Hurt.play()
 	$Score.text = "$" + str(score) + "/$40"
 	scale.x = 0
 	scale.y = 0
