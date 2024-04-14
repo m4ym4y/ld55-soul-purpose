@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=27 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cw8onxu3ujimt" path="res://assets/room10.png" id="12_13ox5"]
 [ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
 [ext_resource type="PackedScene" uid="uid://1b7a0ydchq46" path="res://compendium.tscn" id="13_tygmm"]
+[ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="14_afhcp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
 animations = [{
@@ -226,6 +227,8 @@ offset_left = 20.0
 offset_top = 53.0
 offset_right = 277.0
 offset_bottom = 84.0
+focus_mode = 0
+theme = ExtResource("14_afhcp")
 text = "Summon a Soul (costs $17 worth of candles)"
 
 [node name="ShowCompendium" type="Button" parent="."]
@@ -233,6 +236,8 @@ offset_left = 20.0
 offset_top = 90.0
 offset_right = 219.0
 offset_bottom = 121.0
+focus_mode = 0
+theme = ExtResource("14_afhcp")
 text = "View Spirit Compendium"
 
 [node name="NextDayButton" type="Button" parent="."]
@@ -240,6 +245,8 @@ offset_left = 20.0
 offset_top = 128.0
 offset_right = 167.0
 offset_bottom = 159.0
+focus_mode = 0
+theme = ExtResource("14_afhcp")
 text = "Start the next day"
 
 [node name="Balance" type="Label" parent="."]
@@ -247,6 +254,7 @@ offset_left = 20.0
 offset_top = 23.0
 offset_right = 151.0
 offset_bottom = 46.0
+theme = ExtResource("14_afhcp")
 text = "<PLACEHOLDER>"
 
 [node name="Fade" type="ColorRect" parent="."]
@@ -274,6 +282,8 @@ offset_left = 626.0
 offset_top = 20.0
 offset_right = 774.0
 offset_bottom = 51.0
+focus_mode = 0
+theme = ExtResource("14_afhcp")
 text = "Skip Animation >>"
 
 [node name="Compendium" parent="." instance=ExtResource("13_tygmm")]

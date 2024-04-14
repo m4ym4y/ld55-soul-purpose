@@ -4,14 +4,14 @@ signal finished
 
 ## TODO use formatted text so that terms relating to categories can be bolded
 var current_call
-var customer_joy_data = [
+var customer_delight_data = [
 	{
-		"text": "** Um, hi, my name is Scringo beepus... I.. I was at one of your Super-Mart locations and, um, inside the aisle there was a great big spill. Like a man was attacked by a ghost, and he knocked over a lot of coca cola.. So I slipped, and I fell into... I fell into a pile of rats. And I think-- I think that you as a call center employee should really be held personally responsible for this.. Yes. And my name, it's Scringo beepus **",
+		"text": "** Um, hi, my name is [b]Scringo beepus[/b]... I.. I was at one of your Super-Mart locations and, um, inside the aisle there was a great big spill. Like a man was attacked by a [b]ghost[/b], and he knocked over a lot of coca cola.. So I slipped, and I fell into... I fell into a pile of [b]rats[/b]. And I think-- I think that you as a call center employee should really be held personally responsible for this.. Yes. And my name, it's Scringo beepus **",
 		"name": "scringo beepus",
 		"cats": ["rats", "non_rat"],
 	},
 	{
-		"text": "** Hey dingus! Frederick Flingus calling! I was in my local Burrito Guzzler location and I was eating a Burrito supreme with an extra large Super Hyper Ultra Guzzle, and this man shambled in. He was really pale, and he kept screaming at me that there was a breach at someplace called lab 8. And that the sample has left containment. Or something. He kept coughing up this sorta purple mucus. **Cough** Oh god. Oh jesus. **Cough** **Cough** Oh god oh --- ** beeeeep **",
+		"text": "** Hey dingus! [b]Frederick Flingus[/b] calling! I was in my local Burrito Guzzler location and I was eating a Burrito supreme with an extra large Super Hyper Ultra Guzzle, and this man shambled in. He was really pale, and he kept screaming at me that there was a breach at [color=red]someplace called lab 8[/color]. And that the sample has left containment. Or something. He kept coughing up this sorta purple mucus. **Cough** Oh god. Oh jesus. **Cough** **Cough** Oh god oh --- ** beeeeep **",
 		"name": "frederick flingus",
 		"cats": ["pathogen_x"],
 	},
@@ -19,7 +19,7 @@ var customer_joy_data = [
 
 var summoning_tutorial = [
 	{
-		"text": "This is my office. I work at ComplainUServ, a white-label customer service firm that handles calls for a variety of businesses. My job title is 'Customer Joy Technician,' which means I answer the phones and note down customer feedback in a form. It's quite mindless really, although their angry voices do grate on me.",
+		"text": "This is my office. I work at ComplainUServ, a white-label customer service firm that handles calls for a variety of businesses. My job title is 'Customer Delight Technician,' which means I answer the phones and note down customer feedback in a form. It's quite mindless really, although their angry voices do grate on me.",
 		"img": "infernus",
 	},
 	{
@@ -88,7 +88,7 @@ func _process(delta):
 	pass
 
 func setup_new_call():
-	current_call = customer_joy_data[randi() % customer_joy_data.size()]
+	current_call = customer_delight_data[randi() % customer_delight_data.size()]
 
 	$TextBox.visible = true
 	$Control/name.text = ""

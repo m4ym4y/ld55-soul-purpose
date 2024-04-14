@@ -34,7 +34,7 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if is_finished or messages.size() == 0:
+	if not visible or is_finished or messages.size() == 0:
 		return
 	if event is InputEventMouseButton and not event.pressed and not event.is_echo() and event.button_index == MOUSE_BUTTON_LEFT:
 		if not $TextBox.is_finished:

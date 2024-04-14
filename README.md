@@ -30,7 +30,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [ ] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
 - [x] Animation on submitting customer joy form
 - [x] Animate text for calls
-- [ ] Format text -- bold or color words that correspond to a category and maybe color names?
+- [x] Format text -- bold or color words that correspond to a category and maybe color names?
 - [ ] Add some animation to Infernus sitting at his desk
 
 ## Summoning

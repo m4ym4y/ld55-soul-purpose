@@ -7,7 +7,7 @@ var PULL_PRICE = 17
 
 var summoning_tutorial = [
 		{
-			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles. [ Left click to advance dialogue ]",
+			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles.\n\n[i]Left click to advance dialogue[/i]",
 			"img": "infernus",
 		},
 
@@ -107,7 +107,7 @@ func finish_summoning():
 func _on_summon_result_frame_changed():
 	$DialogueBox.visible = true
 	$DialogueBox.init([
-		{ "text": "You summoned " + state.pull_table[pull_result].name + (" again." if state.pull_table[pull_result].pulled > 1 else "!!") },
+		{ "text": "[shake][center][font_size=24]You summoned " + state.pull_table[pull_result].name + (" again." if state.pull_table[pull_result].pulled > 1 else "!!") },
 		{ "text": "\"" + pull_weighted(state.pull_table[pull_result].dialogue) + "\"" },
 	])
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://y70702kwpevi"]
+[gd_scene load_steps=4 format=3 uid="uid://y70702kwpevi"]
 
 [ext_resource type="Script" path="res://textbox.gd" id="1_qss84"]
+[ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="2_5v8ek"]
+[ext_resource type="AudioStream" uid="uid://bowixpwthv15q" path="res://assets/boop.wav" id="2_gql46"]
 
 [node name="TextBox" type="Node2D"]
 script = ExtResource("1_qss84")
@@ -18,16 +20,20 @@ offset_top = 25.0
 offset_right = 775.0
 offset_bottom = 195.0
 
-[node name="Label" type="Label" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gql46")
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.023
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 770.0
 offset_bottom = 190.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "<Placeholder for text>"
-autowrap_mode = 2
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.025
+theme = ExtResource("2_5v8ek")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,27 +2,33 @@ extends Node2D
 
 signal finished
 
+var idx = 0
 var is_finished = false
 var message
-var idx
 
 func display(_message):
+	idx = 0
 	is_finished = false
 	message = _message
-	idx = 0
-	$Label.text = ""
-	$Timer.start()
+	$RichTextLabel.visible_ratio = 0
+	$RichTextLabel.text = message
+	if message.length() > 0:
+		$Timer.start()
 
 func _on_timer_timeout():
-	if idx >= message.length():
+	if not is_visible_in_tree():
+		return
+	if $RichTextLabel.visible_ratio == 1: 
 		finish()
 		return
-	$Label.text += message[idx]
+	if idx % 2 == 0:
+		$AudioStreamPlayer.pitch_scale = 0.75 + randf() * 0.5
+		$AudioStreamPlayer.play()
+	$RichTextLabel.visible_ratio += 1.0 / $RichTextLabel.text.length()
 	idx += 1
 
 func fast_forward():
-	idx = message.length()
-	$Label.text = message
+	$RichTextLabel.visible_ratio = 1
 	finish()
 
 func finish():
@@ -32,8 +38,7 @@ func finish():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = ""
-	pass # Replace with function body.
+	$RichTextLabel.text = ""
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

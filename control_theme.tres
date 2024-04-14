@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b1403fceh41l5"]
+
+[ext_resource type="StyleBox" uid="uid://7jo54g8cowja" path="res://style_box_flat.tres" id="1_ciups"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cniiy"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.478431)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 16
+Button/styles/disabled = ExtResource("1_ciups")
+Button/styles/focus = ExtResource("1_ciups")
+Button/styles/hover = ExtResource("1_ciups")
+Button/styles/normal = ExtResource("1_ciups")
+Button/styles/pressed = ExtResource("1_ciups")
+CheckBox/styles/focus = ExtResource("1_ciups")
+CheckBox/styles/hover = ExtResource("1_ciups")
+CheckBox/styles/hover_pressed = ExtResource("1_ciups")
+CheckBox/styles/normal = ExtResource("1_ciups")
+CheckBox/styles/pressed = ExtResource("1_ciups")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_cniiy")
+LineEdit/styles/normal = ExtResource("1_ciups")
+LineEdit/styles/read_only = ExtResource("1_ciups")
