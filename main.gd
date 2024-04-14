@@ -34,6 +34,7 @@ func _ready():
 		"candle_store": candleStoreScene,
 	}
 	state = stateScene.instantiate()
+	add_child(state)
 	next_scene()
 
 func _on_scene_finished():

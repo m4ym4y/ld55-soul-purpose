@@ -87,7 +87,7 @@ var pull_weights = [
 		["lab8researcher", 10],
 		["piano", 10],
 		["jimothy", 10],
-		["infernus", 5],
+		["infernus", 5000],
 		["eanasir", 5],
 		["charlotte", 1],
 ]

@@ -188,7 +188,8 @@ func finish_summoning():
 	# pity?
 	if state.days >= 10 && randi() % 3 == 0:
 		pull_result = "charlotte"
-
+	
+	print("pulled ", pull_result)
 	state.pull_table[pull_result].pulled += 1
 
 	$Whoosh.play()

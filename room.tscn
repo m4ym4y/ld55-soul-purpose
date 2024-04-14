@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=38 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://dw1d8wr02vgtu" path="res://assets/eanasir.png" id="18_kc5sq"]
 [ext_resource type="Texture2D" uid="uid://c38v07grxnygg" path="res://assets/jimothy1.png" id="19_4no4h"]
 [ext_resource type="Texture2D" uid="uid://dpj5ea3buu7gu" path="res://assets/jimothy.png" id="20_1is56"]
+[ext_resource type="Texture2D" uid="uid://bmttjx0ushle0" path="res://assets/infernus-pull-1.png" id="21_i2ho7"]
+[ext_resource type="Texture2D" uid="uid://d3waf50o1yp4o" path="res://assets/infernus-pull.png" id="22_2fls7"]
 [ext_resource type="Texture2D" uid="uid://ebau4ag28wvt" path="res://assets/piano-1.png" id="23_kfplf"]
 [ext_resource type="Texture2D" uid="uid://bbfoyln2f8hk" path="res://assets/piano.png" id="24_lxj0v"]
 [ext_resource type="AudioStream" uid="uid://dog5er1o18ved" path="res://assets/whoosh.wav" id="25_tpx70"]
@@ -195,6 +197,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"eanasir",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_i2ho7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2fls7")
+}],
+"loop": false,
+"name": &"infernus",
 "speed": 0.5
 }, {
 "frames": [{
