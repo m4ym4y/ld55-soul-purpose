@@ -4,6 +4,7 @@ signal finished
 
 var idx = 0
 var is_finished = false
+var counting = false
 var message
 
 func display(_message):
@@ -13,7 +14,7 @@ func display(_message):
 	$RichTextLabel.visible_ratio = 0
 	$RichTextLabel.text = message
 	if message.length() > 0:
-		$Timer.start()
+		counting = true
 
 func _on_timer_timeout():
 	if not is_visible_in_tree():
@@ -33,7 +34,7 @@ func fast_forward():
 
 func finish():
 	is_finished = true
-	$Timer.stop()
+	counting = false
 	finished.emit()
 
 # Called when the node enters the scene tree for the first time.
@@ -41,5 +42,12 @@ func _ready():
 	$RichTextLabel.text = ""
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var increment = 0.02
+var acc = 0.0
 func _process(delta):
-	pass
+	if not counting:
+		return
+	acc += delta
+	if acc >= increment:
+		acc = 0
+		_on_timer_timeout()

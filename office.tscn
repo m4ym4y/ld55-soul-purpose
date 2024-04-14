@@ -264,9 +264,6 @@ text = "15:45"
 visible = false
 position = Vector2(591, 385)
 
-[node name="ClockTimer" type="Timer" parent="."]
-wait_time = 0.071
-
 [node name="TransitionBox" parent="." instance=ExtResource("6_ype85")]
 visible = false
 
@@ -283,6 +280,5 @@ visible = false
 
 [connection signal="pressed" from="Control/submit" to="." method="_on_submit_pressed"]
 [connection signal="dismissed" from="SubmitBox" to="." method="_on_submit_box_dismissed"]
-[connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]
 [connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
 [connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]

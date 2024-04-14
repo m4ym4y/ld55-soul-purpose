@@ -24,9 +24,6 @@ offset_bottom = 195.0
 stream = ExtResource("2_gql46")
 volume_db = -10.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.023
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 30.0
 offset_top = 30.0
@@ -36,5 +33,3 @@ theme = ExtResource("2_5v8ek")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 scroll_following = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

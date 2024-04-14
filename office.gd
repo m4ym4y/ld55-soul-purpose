@@ -43,11 +43,13 @@ var state
 func init(_state):
 	state = _state
 
+var counting = false
 func _on_clock_timer_timeout():
 	time += 1
-	show_time()
+	if time % 15 == 0:
+		show_time()
 	if (time > 60 * 14):
-		$ClockTimer.stop()
+		counting = false
 		finish_scene()
 
 func finish_scene():
@@ -79,8 +81,16 @@ func show_time():
 	$Clock.text = "%02d:%02d" % [hours, minutes]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var increment = 0.071
+var acc = 0.0
 func _process(delta):
-	pass
+	if not counting:
+		return
+	acc += delta
+	if acc >= increment:
+		acc = 0
+		_on_clock_timer_timeout()
+	acc += delta
 
 func pick_random_call():
 	current_call = state.get_customer_call()
@@ -107,7 +117,7 @@ func _on_dialogue_box_finished():
 		$Fade.visible = false
 		$Balance.visible = true
 		$Background.play("inside")
-		$ClockTimer.start()
+		counting = true
 		setup_new_call()
 
 func _on_submit_pressed():
