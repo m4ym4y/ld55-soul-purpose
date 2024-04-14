@@ -18,6 +18,53 @@ var pull_table = {
 		]
 	},
 
+	"alice": {
+		"pulled": 0,
+		"name": "Alice",
+		"dialogue": [
+			["Hey there! Cute apartment! I'm really tired of lying around in the underworld, wanna run a marathon with me? No? Well, your loss. I'm outta here!", 50],
+			["Dang, this position is really bad for your posture. I think you should stand up and stretch! That never hurt anyone! Except me, when I stood up to stretch and that wrecking ball hit me.", 50],
+		]
+	},
+
+	"barry": {
+		"pulled": 0,
+		"name": "Barry",
+		"dialogue": [
+			["[shake]Aaaa a shark! A shark! Oh my god this shark is biting me really hard and it won't let go of me! Aaaa!!![/shake]", 50],
+			["Some advice to you, young man. When you die, make sure you're wearing something dignified. Because you're going to be wearing it for a long-ass time in the underworld, and some of those souls can be really ruthless with the teasing and nicknames.", 50],
+		]
+	},
+
+	"kevin": {
+		"pulled": 0,
+		"name": "Kevin",
+		"dialogue": [
+			["Hey brah! Sweet summoning circle, love the digs. Doesn't look like you get a lot of chicks here though. Kinda giving a creepy sorcerer vibe.", 50],
+			["Hey man, how come you don't have any booze? I always did my occult rituals drunk as hell, dude! That's how I got killed by that gigademon during my frat initiation. Dang, maybe your way is smarter... carry on bro.", 50],
+		]
+	},
+
+	"larry": {
+		"pulled": 0,
+		"name": "Long-Fingers Larry",
+		"dialogue": [
+			["Kid, hey kid, ya want some spiritual knowledge? Me and da boys can be [wave]verrrrryy persuasive[/wave] with the ferryman of the underworld, for a certain price...", 50],
+			["Hey kid, you seen a short stocky mob goon? Went by Squat-Legs Steve. We was paired up while we were alive, and I just miss him so bad. I hope he's out there livin' a beautiful life. ** soft weeping **", 50],
+			["Hey kid, if you're ever in the underworld you better go find Richard 'River Styx' Felloni. He can get you anything you need, from the land of the livin' or the dead. Just say the word...", 50],
+		]
+	},
+
+	"ruth": {
+		"pulled": 0,
+		"name": "Ruth",
+		"dialogue": [
+			["Hello dearie! Aren't you a handsome young sorcerer! You know, my grand-daughter, Candice, is single! I think you two would make a simply darling couple!", 100],
+			["Oh my, what a lovely spell that is you're casting! I bet your mother is so proud of you. My son dabbled in the occult, his name was Richard. Oh, I do so hope he's doing okay. Can you say hello to him for me, if you see him at one of your wizard covens?", 50],
+			["My, you're skin and bones! Doesn't somebody feed you? Here, why don't you take out a pad of paper and I'll tell you my matzoh ball soup recipe!", 50],
+		],
+	},
+
 	"trudy": {
 		"pulled": 0,
 		"name": "Trudy",
@@ -54,6 +101,32 @@ var pull_table = {
 		]
 	},
 
+	"orpheus": {
+		"pulled": 0,
+		"name": "Orpheus",
+		"dialogue": [
+			["Your love was lost to the underworld too, my friend? I understand your pain. Although you may be filled with regrets, and desires, you must live for the future anyways. That's my best advice-- never look back.", 50],
+		]
+	},
+
+	"manbat": {
+		"pulled": 0,
+		"name": "Patient 45683",
+		"dialogue": [
+			["[shake]Do not go to Laboratory 8. Do not go to Laboratory 8. Do not go to Laboratory 8[/shake]", 50],
+			["[shake]I am the highest life form!! Soon, all men will be man-bats!! Or men-bats? I don't know the correct plural.[/shake]", 100],
+		]
+	},
+
+	"blademaster": {
+		"pulled": 0,
+		"name": "The Blademaster",
+		"dialogue": [
+			["Greetings, sorcerer! I am the blademaster, [wave]master of the blade[/wave]. Do you wish to study the blade? No? Are you sure? Very well, then. Your loss.", 50],
+			["While you were kissing girls, I studied the blade. While you were summoning, I studied the blade. While you were practicing blade safety, I studied the blade. And now, you call upon my spirit for aid? No? You don't want my aid? Very well. Your loss.", 50],
+		]
+	},
+
 	"eanasir": {
 		"pulled": 0,
 		"name": "Mesopotamian Copper Merchant",
@@ -82,13 +155,22 @@ var pull_table = {
 }
 
 var pull_weights = [
-		["dave", 40],
+		["dave", 30],
+		["alice", 10],
+		["barry", 10],
+		["kevin", 10],
+		["larry", 10],
 		["trudy", 10],
+		["ruth", 10],
 		["lab8researcher", 10],
 		["piano", 10],
 		["jimothy", 10],
+		["orpheus", 5],
+		["manbat", 5],
+		["blademaster", 5],
 		["infernus", 5],
 		["eanasir", 5],
+		["maya", 3],
 		["charlotte", 1],
 ]
 

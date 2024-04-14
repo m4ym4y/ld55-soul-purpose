@@ -440,7 +440,7 @@ color = Color(0, 0, 0, 0.588235)
 
 [node name="SummonResult" type="AnimatedSprite2D" parent="."]
 position = Vector2(400, 300)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.5, 0.497438)
 sprite_frames = SubResource("SpriteFrames_yot1y")
 
 [node name="TransitionBox" parent="." instance=ExtResource("5_p8ga4")]

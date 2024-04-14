@@ -12,7 +12,7 @@ var summoning_tutorial = [
 		},
 
 		{
-			"text": "It wasn't always this way for me, you see. Five years ago I met a woman, more full of spirit than any of the ghosts that I pull from the underworld. Instead of just seeing me as a [shake]creepy sorcerer[/shake], she saw me as a real person. Her name was Charlotte. She loved going with me to the candle store and smelling all the scented candles while I shopped for my ritual supplies. We had a few really good years.",
+			"text": "It wasn't always this way for me, you see. Five years ago I met a woman, more full of spirit than any of the ghosts that I pull from the underworld. Instead of just seeing me as a [shake]spooky sorcerer[/shake], she saw me as a person worthy of love. Her name was Charlotte. She loved going with me to the candle store and smelling all the scented candles while I shopped for my ritual supplies. We had a few really good years.",
 			"img": "infernus",
 		},
 
