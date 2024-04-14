@@ -35,5 +35,6 @@ offset_bottom = 190.0
 theme = ExtResource("2_5v8ek")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
+scroll_following = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
