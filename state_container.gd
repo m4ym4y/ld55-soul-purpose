@@ -4,7 +4,7 @@ var candles = 4
 var money = 18
 var first_time_summoning = true
 var first_time_working = true
-var days = 0
+var days = 10
 var candle_store_visits = 0
 var customer_call_idx = 0
 
@@ -87,7 +87,7 @@ var pull_weights = [
 		["lab8researcher", 10],
 		["piano", 10],
 		["jimothy", 10],
-		["infernus", 5000],
+		["infernus", 5],
 		["eanasir", 5],
 		["charlotte", 1],
 ]
@@ -196,6 +196,28 @@ func get_customer_call():
 		customer_call_idx = 0
 		customer_delight_data.shuffle()
 	return result
+
+
+var rank_tiers = [
+	"novice",
+	"apprentice",
+	"sorcerer",
+	"eternal sage",
+]
+func get_pull_results():
+	var str = ""
+	var pulled = 0
+	for entry in pull_weights:
+		var key = entry[0]
+		var info = pull_table[key] 
+		if info.pulled > 0:
+			pulled += 1
+			str += info.name
+			if info.pulled > 1:
+				str += " [x%d]" % info.pulled
+			str += "."
+	var rank = rank_tiers[floor((float(pulled) / float(pull_weights.size())) * 4)]
+	return "You pulled %d out of %d souls. You've acheived the rank '%s.' Complete summoning results: %s" % [pulled, pull_weights.size(), rank, str]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

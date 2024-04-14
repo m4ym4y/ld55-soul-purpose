@@ -129,6 +129,9 @@ func play_ending():
 			"text": "[b]With that, it's time for the game to end. Thank you for playing Soul Purpose![/b]",
 		},
 		{
+			"text": state.get_pull_results(),
+		},
+		{
 			"text": "[b]The game will now return to the main menu.[/b]",
 		},
 	])

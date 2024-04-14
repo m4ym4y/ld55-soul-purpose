@@ -27,7 +27,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 ## Office
 
-- [ ] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
+- [x] **ADD AS MANY CALLS AS POSSIBLE! Find a way to minimize repeat content**
 - [x] Animation on submitting customer joy form
 - [x] Animate text for calls
 - [x] Format text -- bold or color words that correspond to a category and maybe color names?
@@ -42,7 +42,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 - [x] Dialogue when a summon appears
 - [x] multiple dialogue options per summon
 - [x] Keep a compendium of summons (so you can see how many of everything you've pulled
-- [ ] Special animation if your lost love appears (should fade out after and go to end credits. Tells you how much you spent and how many pulls it took. And all the stats of who you pulled along the way-- maybe this would be better than the compendium)
+- [x] Special animation if your lost love appears (should fade out after and go to end credits. Tells you how much you spent and how many pulls it took. And all the stats of who you pulled along the way-- maybe this would be better than the compendium)
 
 ## Stretch
 
