@@ -4,7 +4,7 @@ signal finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TransitionBox.init("Driving to/from work....")
+	$TransitionBox.init("Another mind-numbing commute...")
 	pass # Replace with function body.
 
 func _on_transition_box_dismissed():

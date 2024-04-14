@@ -102,7 +102,7 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 text = "Rats"
 
-[node name="car_accident" type="CheckBox" parent="Control"]
+[node name="tech" type="CheckBox" parent="Control"]
 layout_mode = 0
 offset_left = 224.0
 offset_top = 192.0
@@ -116,7 +116,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-text = "Car accident"
+text = "Technology"
 
 [node name="animals_speaking" type="CheckBox" parent="Control"]
 layout_mode = 0
@@ -152,9 +152,9 @@ text = "Thievery"
 
 [node name="murder_most_foul" type="CheckBox" parent="Control"]
 layout_mode = 0
-offset_left = 184.0
+offset_left = 160.0
 offset_top = 272.0
-offset_right = 360.0
+offset_right = 336.0
 offset_bottom = 305.0
 theme = ExtResource("4_ss5bm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -212,10 +212,10 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 text = "Existential panic"
 
-[node name="product_complaint" type="CheckBox" parent="Control"]
+[node name="price" type="CheckBox" parent="Control"]
 layout_mode = 0
 offset_top = 272.0
-offset_right = 173.0
+offset_right = 151.0
 offset_bottom = 305.0
 theme = ExtResource("4_ss5bm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -225,7 +225,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
-text = "Product complaint"
+text = "Price complaint"
 
 [node name="pathogen_x" type="CheckBox" parent="Control"]
 layout_mode = 0
