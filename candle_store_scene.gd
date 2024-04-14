@@ -117,7 +117,10 @@ func _on_yes_pressed():
 			"img": "infernus",
 		},
 		{
-			"text": "It feels strange to be moving on. But it feels right, also. I have a good feeling about Candice. Maybe things are starting to look up for Infernus Blackwood.",
+			"text": "It feels so strange to be moving on. But when Candice asked me out, I couldn't help but feel my heart jump, in a way that it hasn't done in some time. My visits to the candle store-- these are really my only happy memories since Charlotte's death. I think-- I think she would rather I live my life, than spend it miserable for her sake. I hope wherever she is, she can understand.",
+		},
+		{
+			"text": ".............................................",
 		},
 		{
 			"text": "[b]With that, it's time for the game to end. Thank you for playing Soul Purpose![/b]",

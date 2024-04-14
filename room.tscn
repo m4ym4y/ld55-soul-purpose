@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=36 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
 [ext_resource type="PackedScene" uid="uid://1b7a0ydchq46" path="res://compendium.tscn" id="13_tygmm"]
 [ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="14_afhcp"]
+[ext_resource type="Texture2D" uid="uid://dubrma0y3aeo0" path="res://assets/charlotte0.png" id="15_pyvnm"]
+[ext_resource type="Texture2D" uid="uid://c13gw7xg60kbx" path="res://assets/charlotte.png" id="16_ikxmv"]
 [ext_resource type="Texture2D" uid="uid://xla878iru0ea" path="res://assets/eanasir_1.png" id="17_ncays"]
 [ext_resource type="Texture2D" uid="uid://dw1d8wr02vgtu" path="res://assets/eanasir.png" id="18_kc5sq"]
 [ext_resource type="Texture2D" uid="uid://c38v07grxnygg" path="res://assets/jimothy1.png" id="19_4no4h"]
@@ -156,6 +158,17 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("15_pyvnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ikxmv")
+}],
+"loop": false,
+"name": &"charlotte",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_0oa7i")
 }, {
 "duration": 1.0,
@@ -264,6 +277,14 @@ offset_bottom = 199.0
 focus_mode = 0
 theme = ExtResource("14_afhcp")
 text = "Start the next day"
+
+[node name="Day" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 155.0
+offset_bottom = 31.0
+theme = ExtResource("14_afhcp")
+text = "<PLACEHOLDER>"
 
 [node name="Money" type="Label" parent="."]
 offset_left = 24.0

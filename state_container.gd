@@ -4,7 +4,7 @@ var candles = 4
 var money = 18
 var first_time_summoning = true
 var first_time_working = true
-var day = 0
+var days = 0
 var candle_store_visits = 0
 var customer_call_idx = 0
 
@@ -71,6 +71,14 @@ var pull_table = {
 			["Oh hey another one of me? I guess we could have some fun, if only I weren't incorporeal...", 5],
 		]
 	},
+
+	"charlotte": {
+		"pulled": 0,
+		"name": "[b]Charlotte[b]",
+		"dialogue": [
+			["Infernus! Infernus, my love! Why are you crying?", 100],
+		]
+	},
 }
 
 var pull_weights = [
@@ -81,6 +89,7 @@ var pull_weights = [
 		["jimothy", 10],
 		["infernus", 5],
 		["eanasir", 5],
+		["charlotte", 1],
 ]
 
 var customer_delight_data = [
