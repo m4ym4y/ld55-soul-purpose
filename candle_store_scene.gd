@@ -135,7 +135,7 @@ func _on_no_pressed():
 	$DialogueBox.init([
 		{
 			"text": "Look, you're a candle-rific gal, but I just don't think I'm ready. I'm still trying to bring Charlotte back, with my summoning magic. And I'm not giving up on that, so I'm sorry, but I can't date you.",
-			"img": "infernus",
+			"img": "infernus_sad",
 		},
 		{
 			"text": "Oh... Of course, I'm sorry, it was wrong of me to even ask.",

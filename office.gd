@@ -35,7 +35,7 @@ func _ready():
 		$DialogueBox.init([
 			{
 				"text": "Looks like it's going to be another long day at the office...",
-				"img": "infernus",
+				"img": "infernus_sad",
 			},
 		])
 
@@ -69,7 +69,7 @@ func finish_scene():
 		$DialogueBox.init([
 			{
 				"text": "My work day is finally over. I can't afford any candles, though. Guess it's straight home for me.",
-				"img": "infernus",
+				"img": "infernus_sad",
 			}
 		])
 

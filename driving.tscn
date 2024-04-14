@@ -1,11 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkeuuim2yfwqr"]
+[gd_scene load_steps=7 format=3 uid="uid://dkeuuim2yfwqr"]
 
 [ext_resource type="Script" path="res://driving.gd" id="1_32pjx"]
-[ext_resource type="PackedScene" uid="uid://d1b6843ixwxes" path="res://transition_box.tscn" id="1_abhpr"]
+[ext_resource type="Texture2D" uid="uid://cdxt5glprgnc1" path="res://assets/driving.png" id="2_rng5b"]
+[ext_resource type="Texture2D" uid="uid://dolkky57imsb5" path="res://assets/driving1.png" id="3_tyq6v"]
+[ext_resource type="Texture2D" uid="uid://c4xhians46cyw" path="res://assets/driving2.png" id="4_keb5n"]
+[ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="5_fo155"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgvvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rng5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tyq6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rng5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_keb5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DrivingScene" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_32pjx")
 
-[node name="TransitionBox" parent="." instance=ExtResource("1_abhpr")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(400, 300)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_hgvvy")
+autoplay = "default"
+frame_progress = 0.472133
 
-[connection signal="dismissed" from="TransitionBox" to="." method="_on_transition_box_dismissed"]
+[node name="DialogueBox" parent="." instance=ExtResource("5_fo155")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 370.0
+offset_top = 195.0
+offset_right = 410.0
+offset_bottom = 235.0
+scale = Vector2(1.78371, 0.384439)
+color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]

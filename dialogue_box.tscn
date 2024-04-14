@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1yofrb2qrxbe"]
+[gd_scene load_steps=8 format=3 uid="uid://b1yofrb2qrxbe"]
 
 [ext_resource type="Script" path="res://dialogue_box.gd" id="1_7xrqf"]
 [ext_resource type="PackedScene" uid="uid://y70702kwpevi" path="res://textbox.tscn" id="2_n553s"]
 [ext_resource type="Texture2D" uid="uid://irhmnvt32w03" path="res://assets/candle-store-girl.png" id="2_vfsgk"]
 [ext_resource type="Texture2D" uid="uid://cgtq4whg361n3" path="res://assets/candice_blush.png" id="3_3hhy5"]
 [ext_resource type="Texture2D" uid="uid://dle4rjeybfa5q" path="res://assets/infernus-portrait.png" id="3_djydu"]
+[ext_resource type="Texture2D" uid="uid://bgn0kclijk7jy" path="res://assets/infernus-sad.png" id="5_w634c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dysft"]
 animations = [{
@@ -38,6 +39,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"infernus",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w634c")
+}],
+"loop": true,
+"name": &"infernus_sad",
 "speed": 5.0
 }]
 

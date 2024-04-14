@@ -18,12 +18,12 @@ var summoning_tutorial = [
 
 		{
 			"text": "She died, and it [shake]broke my heart[/shake]. I can't help but think, maybe if I were there that day at the amusement park I could have stopped her from slipping on that banana peel and falling into the tiger exhibit. But alas, I hate amusement parks so was at home reading Agrippa's memoirs. I hate amusement parks even more, now.",
-			"img": "infernus",
+			"img": "infernus_sad",
 		},
 
 		{
 			"text": "But back to my summoning-- Every night I summon as many times as I can afford, trying to pull Charlotte's spirit back from beyond the veil so I can be with her again. Summoning is an imprecise art though, and I have only a small chance of getting her spirit. Usually I get others, people I have no interest in. What else can I do? I'll spend all my money on candles tonight, and then wake up early again for work tomorrow.",
-			"img": "infernus",
+			"img": "infernus_sad",
 		}
 ]
 
