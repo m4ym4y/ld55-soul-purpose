@@ -46,5 +46,5 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 ## Stretch
 
-- [ ] A magic shop screen in between work and home where you exchange a few words with the shopkeep woman and buy as much magic supplies as possible.
+- [x] A magic shop screen in between work and home where you exchange a few words with the shopkeep woman and buy as much magic supplies as possible.
 - [ ] Some random dialogue on the transitional screens where Infernus shares some facts about himself.

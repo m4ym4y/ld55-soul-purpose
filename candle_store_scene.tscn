@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://gn5yo86mydy5"]
+
+[ext_resource type="Texture2D" uid="uid://bc6dbhudc7b6t" path="res://assets/candle-store.png" id="1_hvqvi"]
+[ext_resource type="Script" path="res://candle_store_scene.gd" id="1_tq1jo"]
+[ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="2_55smg"]
+[ext_resource type="PackedScene" uid="uid://yavs46qwbjny" path="res://state_container.tscn" id="4_biyvc"]
+[ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="5_8oipp"]
+
+[node name="CandleStoreScene" type="Node2D"]
+script = ExtResource("1_tq1jo")
+
+[node name="Candle-store" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hvqvi")
+
+[node name="DialogueBox" parent="." instance=ExtResource("2_55smg")]
+
+[node name="StateContainer" parent="." instance=ExtResource("4_biyvc")]
+
+[node name="Question" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Question"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 500.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Question"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 305.0
+offset_right = 595.0
+offset_bottom = 495.0
+
+[node name="Yes" type="Button" parent="Question"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 448.0
+offset_right = 346.0
+offset_bottom = 481.0
+theme = ExtResource("5_8oipp")
+text = "Yes"
+
+[node name="No" type="Button" parent="Question"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 448.0
+offset_right = 581.0
+offset_bottom = 481.0
+theme = ExtResource("5_8oipp")
+text = "No"
+
+[node name="Label" type="Label" parent="Question"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 344.0
+offset_right = 530.0
+offset_bottom = 393.0
+theme = ExtResource("5_8oipp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Is Infernus ready to move on?
+Will he go for a date with
+the candle store girl?"
+horizontal_alignment = 1
+
+[connection signal="finished" from="DialogueBox" to="." method="_on_dialogue_box_finished"]
+[connection signal="pressed" from="Question/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Question/No" to="." method="_on_no_pressed"]

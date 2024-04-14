@@ -59,7 +59,7 @@ func disable_controls():
 	$ShowCompendium.disabled = true
 
 func enable_controls():
-	if state.money >= PULL_PRICE:
+	if state.candles >= 1:
 		$Button.disabled = false
 	$NextDayButton.disabled = false
 	$ShowCompendium.disabled = false
@@ -84,7 +84,8 @@ func _process(delta):
 		$SummonResult.scale.y += delta * 0.5
 
 func show_balance():
-	$Balance.text = "Money: $" + str(state.money)
+	$Money.text = "Money: $%d" % state.money
+	$Candles.text = "Candles: %d packs" % state.candles
 
 func start_summoning():
 	disable_controls()
@@ -137,7 +138,7 @@ func _on_button_pressed():
 		pass
 
 	# deduct balance
-	state.money -= PULL_PRICE
+	state.candles -= 1
 	show_balance()
 	start_summoning()
 

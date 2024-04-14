@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://du12wlr2n12de"]
+[gd_scene load_steps=7 format=3 uid="uid://du12wlr2n12de"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fitdw"]
 [ext_resource type="PackedScene" uid="uid://bf64ox57xkhst" path="res://main_menu.tscn" id="2_7ihsl"]
 [ext_resource type="PackedScene" uid="uid://dw8sq5c35d3e3" path="res://room.tscn" id="2_uwm8h"]
 [ext_resource type="PackedScene" uid="uid://dkeuuim2yfwqr" path="res://driving.tscn" id="3_88lke"]
 [ext_resource type="PackedScene" uid="uid://j4ihl5y2awa" path="res://office.tscn" id="4_ey3op"]
+[ext_resource type="PackedScene" uid="uid://gn5yo86mydy5" path="res://candle_store_scene.tscn" id="6_ykl7j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fitdw")
@@ -12,4 +13,5 @@ menuScene = ExtResource("2_7ihsl")
 homeScene = ExtResource("2_uwm8h")
 drivingScene = ExtResource("3_88lke")
 officeScene = ExtResource("4_ey3op")
+candleStoreScene = ExtResource("6_ykl7j")
 metadata/_edit_lock_ = true

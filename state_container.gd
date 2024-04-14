@@ -1,9 +1,11 @@
 extends Node
 
-var money = 72
+var candles = 4
+var money = 18
 var first_time_summoning = true
 var first_time_working = true
 var day = 0
+var candle_store_visits = 0
 
 var pull_table = {
 	"dave": {

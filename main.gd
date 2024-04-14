@@ -4,6 +4,7 @@ extends Node2D
 @export var homeScene: PackedScene
 @export var drivingScene: PackedScene
 @export var officeScene: PackedScene
+@export var candleStoreScene: PackedScene
 
 var stateScene = load("res://state_container.tscn")
 var state
@@ -18,7 +19,8 @@ var next_scene_map = {
 		"home": "driving_to",
 		"driving_to": "office",
 		"office": "driving_from",
-		"driving_from": "home",
+		"driving_from": "candle_store",
+		"candle_store": "home",
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +31,7 @@ func _ready():
 		"driving_to": drivingScene,
 		"office": officeScene,
 		"driving_from": drivingScene,
+		"candle_store": candleStoreScene,
 	}
 	state = stateScene.instantiate()
 	next_scene()

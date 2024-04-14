@@ -200,37 +200,45 @@ sprite_frames = SubResource("SpriteFrames_akn02")
 animation = &"empty"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 53.0
-offset_right = 277.0
-offset_bottom = 84.0
+offset_left = 21.0
+offset_top = 91.0
+offset_right = 152.0
+offset_bottom = 124.0
 focus_mode = 0
 theme = ExtResource("14_afhcp")
-text = "Summon a Soul (costs $17 worth of candles)"
+text = "Summon a Soul"
 
 [node name="ShowCompendium" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 90.0
-offset_right = 219.0
-offset_bottom = 121.0
+offset_left = 21.0
+offset_top = 128.0
+offset_right = 222.0
+offset_bottom = 161.0
 focus_mode = 0
 theme = ExtResource("14_afhcp")
 text = "View Spirit Compendium"
 
 [node name="NextDayButton" type="Button" parent="."]
-offset_left = 20.0
-offset_top = 128.0
-offset_right = 167.0
-offset_bottom = 159.0
+offset_left = 21.0
+offset_top = 166.0
+offset_right = 170.0
+offset_bottom = 199.0
 focus_mode = 0
 theme = ExtResource("14_afhcp")
 text = "Start the next day"
 
-[node name="Balance" type="Label" parent="."]
-offset_left = 20.0
-offset_top = 23.0
-offset_right = 151.0
-offset_bottom = 46.0
+[node name="Money" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 155.0
+offset_bottom = 55.0
+theme = ExtResource("14_afhcp")
+text = "<PLACEHOLDER>"
+
+[node name="Candles" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 56.0
+offset_right = 155.0
+offset_bottom = 79.0
 theme = ExtResource("14_afhcp")
 text = "<PLACEHOLDER>"
 
