@@ -23,7 +23,7 @@ var summoning_tutorial = [
 		"img": "infernus",
 	},
 	{
-		"text": "In order to earn money, I need to [type the customer's name into a text field]. Then I [check all boxes relevant to the customer's call]. Finally, I [click submit]. I get paid based on how accurate I was, and how many I can do in a day. Guess I'd better get started...",
+		"text": "In order to earn money, I need to [b]type the customer's name into a text field[/b]. Then I [b]check all boxes relevant to the customer's call[/b]. Finally, I [b]click submit[/b]. I get paid based on how accurate I was, and how many I can do in a day. Guess I'd better get started...",
 		"img": "infernus",
 	}
 ]

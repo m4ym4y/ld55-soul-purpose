@@ -7,17 +7,17 @@ var PULL_PRICE = 17
 
 var summoning_tutorial = [
 		{
-			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles.\n\n[i]Left click to advance dialogue[/i]",
+			"text": "Good evening... My name is Infernus Blackwood, and I'm a wizard. A summoner, to be precise. I spent many years honing the craft of summoning. These days, it's just about all I do. Summon at night, work all day. I need the money, because summoning requires a lot of candles to burn. I probably spend about three thousand dollars per month on candles.\n\n[b]Left click to advance dialogue[/b]",
 			"img": "infernus",
 		},
 
 		{
-			"text": "It wasn't always this way for me, you see. A couple of years ago I met a woman, more full of spirit than any of the ghosts that I pull from the underworld. Instead of just seeing me as a creepy sorcerer, she saw me as a real person. Her name was Charlotte. She loved going with me to the candle store and smelling all the scented candles while I shopped for my ritual supplies. We had a few really good years.",
+			"text": "It wasn't always this way for me, you see. Five years ago I met a woman, more full of spirit than any of the ghosts that I pull from the underworld. Instead of just seeing me as a [shake]creepy sorcerer[/shake], she saw me as a real person. Her name was Charlotte. She loved going with me to the candle store and smelling all the scented candles while I shopped for my ritual supplies. We had a few really good years.",
 			"img": "infernus",
 		},
 
 		{
-			"text": "She died, and it broke my heart. I can't help but think, maybe if I were there that day at the amusement park I could have stopped her from slipping on that banana peel and falling into the tiger exhibit. But alas, I hate amusement parks so was at home reading Agrippa's memoirs. I hate amusement parks even more, now.",
+			"text": "She died, and it [shake]broke my heart[/shake]. I can't help but think, maybe if I were there that day at the amusement park I could have stopped her from slipping on that banana peel and falling into the tiger exhibit. But alas, I hate amusement parks so was at home reading Agrippa's memoirs. I hate amusement parks even more, now.",
 			"img": "infernus",
 		},
 
@@ -50,6 +50,8 @@ func _ready():
 		disable_controls()
 		$DialogueBox.visible = true
 		$DialogueBox.init(summoning_tutorial)
+	else:
+		$Room.play("default")
 
 func disable_controls():
 	$Button.disabled = true
@@ -107,7 +109,7 @@ func finish_summoning():
 func _on_summon_result_frame_changed():
 	$DialogueBox.visible = true
 	$DialogueBox.init([
-		{ "text": "[shake][center][font_size=24]You summoned " + state.pull_table[pull_result].name + (" again." if state.pull_table[pull_result].pulled > 1 else "!!") },
+		{ "text": "[shake][center][font_size=36]You summoned the soul of " + state.pull_table[pull_result].name + (" again." if state.pull_table[pull_result].pulled > 1 else "!!") },
 		{ "text": "\"" + pull_weighted(state.pull_table[pull_result].dialogue) + "\"" },
 	])
 
