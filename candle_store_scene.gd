@@ -20,8 +20,8 @@ func _ready():
 		finished.emit()
 		return
 
-	if state.candle_store_visits == 10:
-	#if state.candle_store_visits == 0:
+	#if state.candle_store_visits == 10:
+	if state.candle_store_visits == 0:
 		print("0 visits")
 		date_sequence = true
 		$DialogueBox.init([
@@ -119,7 +119,7 @@ func _on_yes_pressed():
 			"img": "infernus",
 		},
 		{
-			"text": "It feel strange to be moving on. But it feels right, also. I have a good feeling about Candice. Maybe things are starting to look up for Infernus Blackwood.",
+			"text": "It feels strange to be moving on. But it feels right, also. I have a good feeling about Candice. Maybe things are starting to look up for Infernus Blackwood.",
 		},
 		{
 			"text": "[b]With that, it's time for the game to end. Thank you for playing Soul Purpose![/b]",

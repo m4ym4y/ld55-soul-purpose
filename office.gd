@@ -57,12 +57,21 @@ func finish_scene():
 	ending = true
 	$SubmitBox.queue_free()
 	$DialogueBox.visible = true
-	$DialogueBox.init([
-		{
-			"text": "My work day is finally over. Time to go home and summon some spirits! (Click to continue)",
-			"img": "infernus",
-		}
-	])
+	state.money += money
+	if state.money >= 17:
+		$DialogueBox.init([
+			{
+				"text": "My work day is finally over. And I earned enough money to afford a stop at the [b]Candle Store[/b] on my way home!",
+				"img": "infernus",
+			}
+		])
+	else:
+		$DialogueBox.init([
+			{
+				"text": "My work day is finally over. I can't afford any candles, though. Guess it's straight home for me.",
+				"img": "infernus",
+			}
+		])
 
 func show_time():
 	var minutes = time % 60
@@ -100,7 +109,6 @@ func setup_new_call():
 var ending = false
 func _on_dialogue_box_finished():
 	if ending:
-		state.money += money
 		finished.emit()
 	else:
 		print("DIALOGUE BOX FINISHED")
