@@ -17,7 +17,7 @@ var summoning_tutorial = [
 		},
 
 		{
-			"text": "She died, and it [shake]broke my heart[/shake]. I can't help but think, maybe if I were there that day at the amusement park I could have stopped her from slipping on that banana peel and falling into the tiger exhibit. But alas, I hate amusement parks so was at home reading Agrippa's memoirs. I hate amusement parks even more, now.",
+			"text": "She died, and it broke my heart. I can't help but think, maybe if I had driven with her to her parents' house that day, I could have prevented the accident. But alas, I wanted to stay at home reading Agrippa's memoirs. I haven't been able to pick up a tome or a grimoire since.",
 			"img": "infernus_sad",
 		},
 
