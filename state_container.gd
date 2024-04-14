@@ -34,13 +34,53 @@ var pull_table = {
 			["Mother of god, what have I done! Wh- Where am I? Whoever you are, get out of here, as fast as you can! I'm begging you, you have no idea what we unleashed upon the world! Pathogen X was more virulent than anything we've ever seen, and it's out of containment Hide! Run! Oh god, what have I done! WHAT HAVE I DONEEEEE!", 80],
 			["** Incoherent screaming **", 20],
 		]
-	}
+	},
+
+	"jimothy": {
+		"pulled": 0,
+		"name": "Jimothy",
+		"dialogue": [
+			["Hello, sir, have you seen my parents anywhere? I'm awful cold, and this rich fellow just ran me over with his horse and carriage...", 50],
+			["Hello, sir, have you got any geese? I would really enjoy a christmas goose right now...", 50],
+		]
+	},
+
+	"piano": {
+		"pulled": 0,
+		"name": "Piano",
+		"dialogue": [
+			["** Discordant out-of-tune piano noises **", 50],
+			["Where is this? I was separated from my herd. I heard a bang. Where am I?", 50],
+		]
+	},
+
+	"eanasir": {
+		"pulled": 0,
+		"name": "Mesopotamian Copper Merchant",
+		"dialogue": [
+			["Hello my friend! You work in a call center? I have no idea what that is, but I do know a thing or two about customer complaints. The key is to never stop selling poor quality copper to Bablyon, no matter what your haters try to say.", 50],
+		]
+	},
+
+	"infernus": {
+		"pulled": 0,
+		"name": "Infernus",
+		"dialogue": [
+			["Uh oh, I guess the tie between my soul and my body is getting pretty threadbare... I better do some spiritual healing magic... just as soon as I pull some more souls...", 50],
+			["Oh hey, what? This is my room! Oh, oops. Guess I better get back into my body. God, I really need some sleep...", 50],
+			["Oh hey another one of me? I guess we could have some fun, if only I weren't incorporeal...", 5],
+		]
+	},
 }
 
 var pull_weights = [
-		["dave", 50],
-		["trudy", 25],
-		["lab8researcher", 25],
+		["dave", 40],
+		["trudy", 10],
+		["lab8researcher", 10],
+		["piano", 10],
+		["jimothy", 10],
+		["infernus", 5],
+		["eanasir", 5],
 ]
 
 var customer_delight_data = [

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dw8sq5c35d3e3"]
+[gd_scene load_steps=34 format=3 uid="uid://dw8sq5c35d3e3"]
 
 [ext_resource type="Script" path="res://room.gd" id="1_5a0lj"]
 [ext_resource type="Texture2D" uid="uid://dp6t6a8nt5ogo" path="res://assets/room1.png" id="2_uhwfe"]
@@ -24,6 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://b1yofrb2qrxbe" path="res://dialogue_box.tscn" id="12_40mwk"]
 [ext_resource type="PackedScene" uid="uid://1b7a0ydchq46" path="res://compendium.tscn" id="13_tygmm"]
 [ext_resource type="Theme" uid="uid://b1403fceh41l5" path="res://control_theme.tres" id="14_afhcp"]
+[ext_resource type="Texture2D" uid="uid://xla878iru0ea" path="res://assets/eanasir_1.png" id="17_ncays"]
+[ext_resource type="Texture2D" uid="uid://dw1d8wr02vgtu" path="res://assets/eanasir.png" id="18_kc5sq"]
+[ext_resource type="Texture2D" uid="uid://c38v07grxnygg" path="res://assets/jimothy1.png" id="19_4no4h"]
+[ext_resource type="Texture2D" uid="uid://dpj5ea3buu7gu" path="res://assets/jimothy.png" id="20_1is56"]
+[ext_resource type="Texture2D" uid="uid://ebau4ag28wvt" path="res://assets/piano-1.png" id="23_kfplf"]
+[ext_resource type="Texture2D" uid="uid://bbfoyln2f8hk" path="res://assets/piano.png" id="24_lxj0v"]
 [ext_resource type="AudioStream" uid="uid://dog5er1o18ved" path="res://assets/whoosh.wav" id="25_tpx70"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_akn02"]
@@ -169,6 +175,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("17_ncays")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kc5sq")
+}],
+"loop": false,
+"name": &"eanasir",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_4no4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1is56")
+}],
+"loop": false,
+"name": &"jimothy",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_wwwmp")
 }, {
 "duration": 1.0,
@@ -176,6 +204,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"lab8researcher",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_kfplf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_lxj0v")
+}],
+"loop": false,
+"name": &"piano",
 "speed": 0.5
 }, {
 "frames": [{
