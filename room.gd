@@ -17,7 +17,7 @@ var summoning_tutorial = [
 		},
 
 		{
-			"text": "She died, and it broke my heart. I can't help but think, maybe if I had driven with her to her parents' house that day, I could have prevented the accident. But alas, I wanted to stay at home reading Agrippa's memoirs. I haven't been able to pick up a tome or a grimoire since.",
+			"text": "She died, and it broke my heart. I can't help but think, maybe if I had driven with Charlotte to her parents' house that day, I could have prevented the accident. But alas, I wanted to stay at home reading Agrippa's memoirs. I haven't been able to pick up a tome or a grimoire since.",
 			"img": "infernus_sad",
 		},
 
@@ -30,10 +30,12 @@ var summoning_tutorial = [
 func pull_weighted(list):
 	var sum = 0
 	for item in list:
-		sum += item[1]
+		if item.size() >= 2:
+			sum += item[1]
 	var pull = randi() % sum
 	for item in list:
-		pull -= item[1]
+		if item.size() >= 2:
+			pull -= item[1]
 		if (pull <= 0):
 			return item[0]
 	return list[0][0]

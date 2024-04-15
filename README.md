@@ -35,7 +35,7 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 ## Summoning
 
-- [ ] **ADD MORE SUMMONS! Make em cool and funny and cute**
+- [x] **ADD MORE SUMMONS! Make em cool and funny and cute**
 - [x] Proper animation when summoning (featuring Infernus)
 - [x] Ability to skip summoning animation and go straight to reveal
 - [x] Explanation of how money turns into summoning? Does he sprinkle dollar bills on the pentagram and they burn up?
@@ -48,3 +48,11 @@ doesn't pay very much but he needs to rescue his love's soul somehow.
 
 - [x] A magic shop screen in between work and home where you exchange a few words with the shopkeep woman and buy as much magic supplies as possible.
 - [ ] Some random dialogue on the transitional screens where Infernus shares some facts about himself.
+
+# Pre-Flight Checklist
+
+1. Look through summon animations and make sure they're all configured 0.5 FPS, non looping.
+2. Look through pulls and make sure they're all in pull list and pull map
+3. Play through the game
+4. Play through the game in the browser version
+5. Build and upload to itch.io
