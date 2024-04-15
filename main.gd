@@ -43,12 +43,9 @@ func _on_scene_finished():
 
 func next_scene():
 	current_scene = next_scene_map[current_scene]
-	print("LOADING SCENE", current_scene)
 	var scene_class = scene_class_map[current_scene]
-	print("SCENE_CLASS", scene_class)
 	scene = scene_class.instantiate()
 
-	print("GOT STATE", state)
 	if scene.has_method("init"):
 		scene.init(state)
 	scene.position = Vector2(0, 0)

@@ -16,17 +16,20 @@ func display(_message):
 	if message.length() > 0:
 		counting = true
 
-func _on_timer_timeout():
-	if not is_visible_in_tree():
+var increment = 0.08
+var acc = 0.0
+func _process(delta):
+	if not counting or not is_visible_in_tree():
 		return
 	if $RichTextLabel.visible_ratio == 1: 
 		finish()
 		return
-	if idx % 2 == 0:
+	if acc >= increment:
+		acc = 0
 		$AudioStreamPlayer.pitch_scale = 0.75 + randf() * 0.5
 		$AudioStreamPlayer.play()
-	$RichTextLabel.visible_ratio += 1.0 / $RichTextLabel.text.length()
-	idx += 1
+	$RichTextLabel.visible_ratio += delta / 2.0
+	acc += delta 
 
 func fast_forward():
 	$RichTextLabel.visible_ratio = 1
@@ -40,14 +43,3 @@ func finish():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$RichTextLabel.text = ""
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-var increment = 0.02
-var acc = 0.0
-func _process(delta):
-	if not counting:
-		return
-	acc += delta
-	if acc >= increment:
-		acc = 0
-		_on_timer_timeout()
