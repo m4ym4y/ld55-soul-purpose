@@ -201,7 +201,7 @@ var pull_weights = [
 		["infernus", 5],
 		["eanasir", 5],
 		["maya", 3],
-		["charlotte", 1],
+		["charlotte", 2],
 ]
 
 var customer_delight_data = [
@@ -328,7 +328,7 @@ func get_pull_results():
 			if info.pulled > 1:
 				str += " [x%d]" % info.pulled
 			str += "."
-	var rank = rank_tiers[floor((float(pulled) / float(pull_weights.size())) * 4)]
+	var rank = rank_tiers[min(floor((float(pulled) / float(pull_weights.size())) * 4), 3)]
 	return "You pulled %d out of %d souls. You've acheived the rank '%s.' Complete summoning results: %s" % [pulled, pull_weights.size(), rank, str]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
